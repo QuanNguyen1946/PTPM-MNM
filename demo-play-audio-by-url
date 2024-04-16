@@ -1,0 +1,9 @@
+# play audio by url
+    
+import vlc
+url = "https://zingmp3.vn/bai-hat/2AM-JustaTee-BigDaddy/ZW7WW998.html"
+def play_audio(url):
+    p = vlc.MediaPlayer(url)
+    p.play()
+
+play_audio(url)
