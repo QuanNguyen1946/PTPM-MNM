@@ -8,6 +8,7 @@ root = tk.Tk()
 root.title("Test video player")
 root.geometry("800x700+290+10")
 
+
 frame = tk.Frame(root)
 frame.pack()
 
@@ -55,7 +56,13 @@ def video_ended(event):
     play_pause_btn["text"] = "Play"
     progress_slider.set(0)
     
+    
+load_btn = tk.Button(root,text="Browse", bg="#FFFFFF", font = ("calibri", 12, "bold"),command= load_video)
+load_btn.pack(ipadx = 12, ipady = 4, anchor = tk.NW)
 
+vid_player = TkinterVideo(root, scaled= True)
+vid_player.pack(expand = True, fill = "both")
+    
 start_time = tk.Label(root, text= str(datetime.timedelta(seconds=0)))
 start_time.pack(side="left")
 
@@ -66,12 +73,6 @@ progress_slider.pack(side= "left", fill= "x", expand= True)
 
 end_time = tk.Label(root, text = str(datetime.timedelta(seconds= 0)))
 end_time.pack(side= "left")
-
-load_btn = tk.Button(root,text="browse", bg="#FFFFFF", font = ("calibri", 12, "bold"),command= load_video)
-load_btn.pack(ipadx = 12, ipady = 4, anchor = tk.NW)
-
-vid_player = TkinterVideo(root, scaled= True)
-vid_player.pack(expand = True, fill = "both")
 
 Buttonbackward = PhotoImage(file = "backward.png")
 back = tk.Button(lower_frame, image = Buttonbackward, bd = 0, height = 50, width = 50, command = lambda:skip(-5)).pack(side= LEFT)
